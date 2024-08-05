@@ -99,62 +99,6 @@ function App() {
         </ThemeProvider>
       </ColorModeContext.Provider>
     </Router>
-    // <ColorModeContext.Provider value={colorMode}>
-    //   <ThemeProvider theme={theme}>
-    //     <CssBaseline />
-    //     <div className="Dashboard_app">
-    //       <Sidebar isSidebar={isSidebar} />
-    //       <main className="content">
-    //         <Topbar setIsSidebar={setIsSidebar} />
-    // <Router>
-    //   {/* <Topbar /> */}
-    //   <Routes>
-    //           <Route path="/dash" element={<Dashboard />} />
-    //           <Route path="/team" element={<Team />} />
-    //           <Route path="/contacts" element={<Contacts />} />
-    //           <Route path="/invoices" element={<Invoices />} />
-    //           <Route path="/form" element={<Form />} />
-    //           <Route path="/bar" element={<Bar />} />
-    //           <Route path="/pie" element={<Pie />} />
-    //           <Route path="/line" element={<Line />} />
-    //           <Route path="/faq" element={<FAQ />} />
-    //           <Route path="/calendar" element={<Calendar />} />
-    //           <Route path="/geography" element={<Geography />} />
-    //     <Route exact path="/" element={   <Homepage />}>
-
-    //     </Route>
-    //     <Route path="/posts" element={<Homepage />}>
-
-    //     </Route>
-    //     {/* <Route path="/dash" element={user ? <Dash/> : <Register />}>
-
-    //       </Route> */}
-    //     <Route path="/register" element={user ? <Homepage /> : <Register />}>
-
-    //     </Route>
-    //     <Route path="/login" element={user ? <Homepage /> : <Login />}></Route>
-    //     <Route path="/post/:id" element={<Single />}>
-
-    //     </Route>
-    //     <Route path="/write" element={user ? <Write /> : <Login />}></Route>
-    //     <Route path="/settings"
-    //        element={user ? <Settings /> : <Login />}>
-    //     </Route>
-    //     <Route path="/upload"
-    //        element={user ? <Upload /> : <Login />}>
-    //     </Route>
-    //     <Route path="/videolist"
-    //        element={user ? <ListDisplay /> : <Login />}>
-    //     </Route>
-    //     <Route path="/Display"
-    //        element={user ? <Display /> : <Login />}>
-    //     </Route>
-    //   </Routes>
-    // </Router>
-    // </main>
-    //     </div>
-    //   </ThemeProvider>
-    // </ColorModeContext.Provider>
   );
 }
 
