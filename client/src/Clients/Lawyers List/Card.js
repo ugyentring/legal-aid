@@ -3,9 +3,8 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { Link } from "@material-ui/core";
+import { Link } from "react-router-dom"; 
 
 export default function MediaCard({ posts }) {
   console.log(posts);
@@ -14,7 +13,7 @@ export default function MediaCard({ posts }) {
       <CardMedia
         sx={{ height: 140 }}
         image={posts.profilePic}
-        title="green iguana"
+        title="Profile Picture"
       />
       <CardContent>
         <Typography gutterBottom variant="h4" component="div">
@@ -41,15 +40,14 @@ export default function MediaCard({ posts }) {
         </div>
         <Typography variant="body2" color="text.secondary" textAlign="left">
           Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          species, ranging across all continents except Antarctica.
         </Typography>
       </CardContent>
       <CardActions>
-        <Link href={`/lawyers/${posts._id}`}>
-          <button type="button" class="btn btn-success btn-sm">
+        <Link to={`/lawyers/${posts._id}`} style={{ textDecoration: 'none' }}>
+          <button type="button" className="btn btn-success btn-sm">
             Details
           </button>
-          {/* <Button size="small" sx = {{color: "Black", backgroundColor: "Green", "&:hover": {pointerEvents: "none"}}}>Details</Button> */}
         </Link>
       </CardActions>
     </Card>

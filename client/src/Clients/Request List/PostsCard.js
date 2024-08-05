@@ -1,21 +1,13 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
-import ButtonBase from "@mui/material/ButtonBase";
 import { Avatar } from "@mui/material";
-import { Stack } from "@mui/material";
-import DoneIcon from "@mui/icons-material/Done";
 import Box from "@mui/material/Box";
 import { Chip } from "@mui/material";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
-
-const ListItem = styled("li")(({ theme }) => ({
-  margin: theme.spacing(0.5),
-}));
 
 export default function PostsCard({ posts }) {
   const [lawyers, setlawyers] = React.useState([]);
@@ -47,14 +39,7 @@ export default function PostsCard({ posts }) {
           <Grid item xs={12} sm={12} md={12} container direction="column">
             <Grid item xs container spacing={1}>
               <Grid container style={{ marginLeft: "5px" }}>
-                <Grid
-                  item
-                  xs={12}
-                  sm={12}
-                  md={9}
-                  direction="column"
-                  // spacing={2}
-                >
+                <Grid item xs={12} sm={12} md={9} direction="column">
                   <Typography
                     gutterBottom
                     variant="subtitle1"
@@ -67,8 +52,7 @@ export default function PostsCard({ posts }) {
                 <Grid item xs={6} sm={6} md={1}>
                   <Chip
                     label={posts.status}
-                    color={posts.status == "Accepted" ? "success" : "warning"}
-                    // style={{ color: "orange" }}
+                    color={posts.status === "Accepted" ? "success" : "warning"}
                     className="text-white"
                   />
                 </Grid>

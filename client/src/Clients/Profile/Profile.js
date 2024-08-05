@@ -1,20 +1,12 @@
 import * as React from "react";
-import Button from "@mui/material/Button";
-// import Navbar from "../components/Navbar";
-import { CssBaseline } from "@mui/material";
 import BeforeEditContent from "./components/BeforeEditContent";
 import BeforeUneditableContent from "./components/BeforeUneditableContent";
 import AfterEditContent from "./components/AfterEditContent";
 import { useState } from "react";
 import MyModal from "./components/MyModal";
 import BeforeEditSkills from "./components/BeforeEditSkills";
-import ImageHeader from "./components/ImageHeader";
-import YourPosts from "./components/YourPosts";
-import { useEffect } from "react";
-import { Navigate } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+
 import "./Profile.css";
-// import Login from "../accounts/Login";
 
 function Profile(auth) {
   const [show, setShow] = useState({
@@ -94,7 +86,7 @@ function Profile(auth) {
   };
 
   const skillConvert = (str) => {
-    if (str.length == 0) {
+    if (str.length === 0) {
       return [];
     } else {
       str = str.trim();
@@ -109,7 +101,7 @@ function Profile(auth) {
   };
 
   const handleInput = (e) => {
-    if (e.target.name == "skills") {
+    if (e.target.name === "skills") {
       setDetails({
         ...details,
         [e.target.name]: skillConvert(e.target.value),
@@ -189,9 +181,6 @@ function Profile(auth) {
 
   return (
     <>
-      {/* <Navbar />
-      <CssBaseline />
-      <ImageHeader /> */}
       <section className="a-profile">
         <div className="a-center">
           <div className="a-edit-container shadow-lg rounded p-3 bg-white">
@@ -203,13 +192,13 @@ function Profile(auth) {
                 return (
                   <div key="sdkjfh" className="a-row-content">
                     {data.toShow ? (
-                      data.title == "Skills" ? (
+                      data.title === "Skills" ? (
                         <BeforeEditSkills
                           title="fgdfg"
                           content={["sgdgf"]}
                           editButtonClick="zdfd"
                         />
-                      ) : data.title == "Email" ? (
+                      ) : data.title === "Email" ? (
                         <BeforeUneditableContent
                           title={data.title}
                           content="sgdgf"

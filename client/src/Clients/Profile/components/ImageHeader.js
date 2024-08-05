@@ -1,5 +1,4 @@
 import * as React from "react";
-import { CardMedia } from "@mui/material";
 
 function ImageHeader(props) {
   return (
@@ -12,11 +11,6 @@ function ImageHeader(props) {
               alt=""
               style={{ borderRadius: "50%" }}
             />
-            {/* <CardMedia
-              component="img"
-              width="20"
-              image="https://th.bing.com/th/id/OIP._VoTfUzENldEmDbFEcQi4QHaHa?w=188&h=188&c=7&r=0&o=5&dpr=1.25&pid=1.7"
-            /> */}
           </div>
         </div>
       </div>

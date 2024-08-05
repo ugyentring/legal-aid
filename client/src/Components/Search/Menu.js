@@ -10,7 +10,6 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
-import MenuTwoToneIcon from "@mui/icons-material/MenuTwoTone";
 
 export default function TemporaryDrawer() {
   const [state, setState] = React.useState({

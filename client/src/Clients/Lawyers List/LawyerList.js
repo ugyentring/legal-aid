@@ -1,6 +1,5 @@
 import React from "react";
 import ResponsiveGrid from "./ResponsiveGrid";
-import PrimarySearchAppBar from "../../Components/Search/Header";
 import axios from "axios";
 import { useLocation } from "react-router";
 
@@ -18,7 +17,6 @@ const LawyerList = () => {
   }, [search]);
   return (
     <div style={{ overflowY: "scroll" }}>
-      {/* <PrimarySearchAppBar /> */}
       <ResponsiveGrid posts={posts} />
     </div>
   );

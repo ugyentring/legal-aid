@@ -34,7 +34,7 @@ function AddressInput(props) {
           title="First Line"
           name="first_line"
           content={
-            props.details?.content?.first_line == "Not Provided"
+            props.details?.content?.first_line === "Not Provided"
               ? ""
               : props.details?.content?.first_line
           }
@@ -44,7 +44,7 @@ function AddressInput(props) {
           title="Landmark"
           name="landmark"
           content={
-            props.details?.content?.landmark == "Not Provided"
+            props.details?.content?.landmark === "Not Provided"
               ? ""
               : props.details?.content?.landmark
           }
@@ -54,7 +54,7 @@ function AddressInput(props) {
           title="City"
           name="city"
           content={
-            props.details?.content?.city == "Not Provided"
+            props.details?.content?.city === "Not Provided"
               ? ""
               : props.details?.content?.city
           }
@@ -64,7 +64,7 @@ function AddressInput(props) {
           title="State"
           name="state"
           content={
-            props.details?.content?.state == "Not Provided"
+            props.details?.content?.state === "Not Provided"
               ? ""
               : props.details?.content?.state
           }
@@ -74,7 +74,7 @@ function AddressInput(props) {
           title="Country"
           name="country"
           content={
-            props.details?.content?.country == "Not Provided"
+            props.details?.content?.country === "Not Provided"
               ? ""
               : props.details?.content?.country
           }
@@ -84,7 +84,7 @@ function AddressInput(props) {
           title="Pincode"
           name="pincode"
           content={
-            props.details?.content?.pincode == 0
+            props.details?.content?.pincode === 0
               ? ""
               : props.details?.content?.pincode
           }

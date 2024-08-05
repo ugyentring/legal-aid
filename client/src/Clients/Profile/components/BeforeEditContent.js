@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from "react";
 
 function BeforeEditContent(props) {
   return (
@@ -8,7 +8,7 @@ function BeforeEditContent(props) {
           <span className="a-edit-left-title">{props.title}</span>
         </div>
         <div className="col-lg-7 col-sm-10">
-          {props.content == undefined || props.content.length == 0 ? (
+          {props.content === undefined || props.content.length === 0 ? (
             <span className="a-edit-right-content a-not-provided">
               Not Provided
             </span>

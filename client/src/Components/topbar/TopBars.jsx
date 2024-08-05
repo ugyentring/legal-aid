@@ -5,7 +5,7 @@ import "./topbar.css";
 
 export default function TopBars() {
   const { user, dispatch } = useContext(Context);
-  const PF = "http://localhost:5000/images/"
+  const PF = "http://localhost:5000/images/";
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
@@ -40,13 +40,12 @@ export default function TopBars() {
               Write
             </Link>
           </li>
-          
         </ul>
       </div>
       <div className="topRight">
         {user ? (
           <Link to="/settings">
-            <img className="topImg" src={PF+user.profilePic} alt="" />
+            <img className="topImg" src={PF + user.profilePic} alt="" />
           </Link>
         ) : (
           <ul className="topList">
@@ -63,12 +62,16 @@ export default function TopBars() {
           </ul>
         )}
         {/* <i className="topSearchIcon fas fa-search"></i> */}
-        <Link className="link" to="/upload"><button className="btn btn-danger"> <i class="fa-solid fa-arrow-up-from-bracket"></i> Uploads </button></Link>
-          <button className="btn btn-dark m-2 topListItem" onClick={handleLogout}>
-          <i class="fa-solid fa-user-slash"></i>
-            {user && "Sign-Off" }
-            
+        <Link className="link" to="/upload">
+          <button className="btn btn-danger">
+            {" "}
+            <i class="fa-solid fa-arrow-up-from-bracket"></i> Uploads{" "}
           </button>
+        </Link>
+        <button className="btn btn-dark m-2 topListItem" onClick={handleLogout}>
+          <i class="fa-solid fa-user-slash"></i>
+          {user && "Sign-Off"}
+        </button>
       </div>
     </div>
   );

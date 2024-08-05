@@ -2,7 +2,6 @@ import * as React from "react";
 import { Container } from "@material-ui/core";
 import YourPostsCard from "./YourPostsCard";
 import Header from "./Header";
-import { CenterFocusStrong } from "@mui/icons-material";
 
 function YourPosts() {
   var currPost = JSON.parse(localStorage.getItem("yourPosts"));

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from "react";
 
 function AfterEditContent(props) {
   return (
@@ -8,18 +8,18 @@ function AfterEditContent(props) {
           <span className="a-edit-left-title">{props.title}</span>
         </div>
         <div className="col-lg-8">
-          {props.title == "Description" || props.title == "Skills" ? (
+          {props.title === "Description" || props.title === "Skills" ? (
             <textarea
               className="form-control"
               rows="3"
               placeholder={`Your ${props.title}`}
               defaultValue={
-                props.content == "Not Provided" ? "" : props.content
+                props.content === "Not Provided" ? "" : props.content
               }
               name={props.name}
               onChange={props.onChange}
             ></textarea>
-          ) : props.title == "Skills" ? (
+          ) : props.title === "Skills" ? (
             <input
               type="text"
               className="form-control"
@@ -27,11 +27,11 @@ function AfterEditContent(props) {
               placeholder={`Your ${props.title}`}
               style={{ width: "250px" }}
               defaultValue={
-                props.title == "Contact"
-                  ? props.content == 0
+                props.title === "Contact"
+                  ? props.content === 0
                     ? ""
                     : props.content
-                  : props.content == "Not Provided"
+                  : props.content === "Not Provided"
                   ? ""
                   : props.content
               }
@@ -46,11 +46,11 @@ function AfterEditContent(props) {
               placeholder={`Your ${props.title}`}
               style={{ width: "250px" }}
               defaultValue={
-                props.title == "Contact"
-                  ? props.content == 0
+                props.title === "Contact"
+                  ? props.content === 0
                     ? ""
                     : props.content
-                  : props.content == "Not Provided"
+                  : props.content === "Not Provided"
                   ? ""
                   : props.content
               }

@@ -1,7 +1,4 @@
-import axios from "axios";
 import { tokens } from "../theme";
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 
 export const mockDataTeam = [
   {

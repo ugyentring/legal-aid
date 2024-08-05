@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
@@ -17,35 +17,18 @@ function MyModal(props) {
     confirmPassword: "",
   });
 
-  var details = props.details;
-
   const validatePassword = (oldPassword, newPassword, confirmPassword) => {
-    if (newPassword.length == 0) {
-      // enqueueSnackbar("Please enter new password", {
-      //   variant: "error",
-      // });
+    if (newPassword.length === 0) {
       return false;
-    } else if (confirmPassword.length == 0) {
-      // enqueueSnackbar("Please enter confirm password", {
-      //   variant: "error",
-      // });
+    } else if (confirmPassword.length === 0) {
       return false;
-    } else if (newPassword == confirmPassword) {
+    } else if (newPassword === confirmPassword) {
       if (newPassword.length < MIN_LENGTH_OF_PASSWORD) {
-        // enqueueSnackbar("Password is too short", {
-        //   variant: "error",
-        // });
         return false;
       } else {
-        // enqueueSnackbar("Validated", {
-        //   variant: "success",
-        // });
         return true;
       }
     } else {
-      // enqueueSnackbar("New password is different form confirm password", {
-      //   variant: "error",
-      // });
       return false;
     }
   };

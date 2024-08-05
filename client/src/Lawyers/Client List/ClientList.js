@@ -1,5 +1,4 @@
 import React from "react";
-import PrimarySearchAppBar from "../../Components/Search/Header";
 import axios from "axios";
 import { useLocation } from "react-router";
 import ClientResponsiveGrid from "./ClientResponsiveGrid";
