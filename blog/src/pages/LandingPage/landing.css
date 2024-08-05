@@ -1,0 +1,13 @@
+body {
+    font-size: large;
+}
+.s-landing {
+    background: url(../../firstbag1.jpg);
+    background-size: 100% 100%;
+}
+
+.title1 {
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+}

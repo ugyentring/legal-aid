@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap");
+/* body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins";
+  background: #eee;
+}
+
+* {
+  box-sizing: border-box;
+} */
+
+.S-caseForm {
+  display: block;
+  background-color: #fff;
+  box-shadow: 1px 1px 3px 2px #ddd;
+  margin: 40px auto;
+  max-width: 600px;
+  max-height: 700px;
+  padding: 20px 40px;
+}
+
+.S-caseForm input,
+textarea {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 10px auto;
+  padding: 8px;
+  background-color: #f3f3f3;
+  border: 1px solid #ddd;
+  font-family: "Poppins";
+}
+
+.Form-Header {
+  color: black;
+}
+
+.S-caseForm span {
+  color: rgb(29, 185, 237);
+}
+
+.S-caseForm button {
+  height: 25px;
+  width: 60px;
+  align-items: center;
+  border: none;
+  background-color: rgb(29, 185, 237);
+  color: #fff;
+}
