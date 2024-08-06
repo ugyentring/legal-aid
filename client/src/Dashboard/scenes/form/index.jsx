@@ -1,9 +1,7 @@
 import { Box, Button, TextField } from "@mui/material";
-import { Formik } from "formik";
-import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../../components/Header";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 const Form = () => {
@@ -22,12 +20,6 @@ const Form = () => {
   const handleTeamSubmit = async () => {
     console.log("rjf");
     const res = await axios.post("http://localhost:5000/api/team", {
-      // id,
-      // username,
-      // email,
-      // contact,
-      // lawyerid,
-      // access,
       ...data,
     });
     console.log(res);
@@ -38,7 +30,6 @@ const Form = () => {
     const name = e.target.name;
     const value = e.target.value;
     setData({ ...data, [name]: value });
-    // console.log(data);
   };
 
   return (

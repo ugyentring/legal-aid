@@ -2,6 +2,7 @@ import "./LawyerId.css";
 import React, { useState, useRef, useContext } from "react";
 import { Context } from "../../context/Context";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Id() {
   const [username, setUsername] = useState("");
@@ -34,7 +35,7 @@ function Id() {
 
   const userRef = useRef();
   const passwordRef = useRef();
-  const { user, dispatch, isFetching } = useContext(Context);
+  const { dispatch, isFetching } = useContext(Context);
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
@@ -83,21 +84,6 @@ function Id() {
 
   return (
     <div>
-      {/* <header className="header">
-        <nav className="navbar">
-          <a href="#">Home</a>
-          <a href="#">About</a>
-          <a href="#">Services</a>
-          <a href="#">Contact</a>
-        </nav>
-        <form action="#" className="search-bar">
-          <input type="text" placeholder="Search.." />
-          <button type="submit">
-            <i className="bx bx-search"></i>
-          </button>
-        </form>
-      </header> */}
-
       <div className="background"></div>
       <div className="s-lawyerid-container">
         <div className="content">
@@ -117,18 +103,18 @@ function Id() {
             </p>
 
             <div className="social-icons">
-              <a href="#">
+              <Link href="#">
                 <i className="bx bxl-linkedin"></i>
-              </a>
-              <a href="#">
+              </Link>
+              <Link href="#">
                 <i className="bx bxl-instagram"></i>
-              </a>
-              <a href="#">
+              </Link>
+              <Link href="#">
                 <i className="bx bxl-facebook"></i>
-              </a>
-              <a href="#">
+              </Link>
+              <Link href="#">
                 <i className="bx bxl-twitter"></i>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -156,9 +142,14 @@ function Id() {
                 <label>
                   <input type="checkbox" />
                 </label>
-                <a href="#">Forget password?</a>
+                <Link href="#">Forget password?</Link>
               </div>
-              <button style={{background: "#78613C"}} type="submit" className="btn" onClick={handleLoginSubmit}>
+              <button
+                style={{ background: "#78613C" }}
+                type="submit"
+                className="btn"
+                onClick={handleLoginSubmit}
+              >
                 Sign In
               </button>
 
@@ -168,14 +159,14 @@ function Id() {
               >
                 <p>
                   Don't have an account?
-                  <a
+                  <Link
                     href="#"
                     style={{ marginLeft: "1.5px" }}
                     className="login-link"
                     onClick={handleClick}
                   >
                     Sign Up
-                  </a>
+                  </Link>
                 </p>
               </div>
             </form>
@@ -186,7 +177,7 @@ function Id() {
               <h2>Sign Up</h2>
               <div className="fields">
                 {Fields.map((item, index) => (
-                  <div className="input-box">
+                  <div className="input-box" key={index}>
                     <span className="icon">
                       {/* <i className="bx bx-envelope"></i> */}
                     </span>
@@ -204,9 +195,10 @@ function Id() {
                 <label>
                   <input type="checkbox"></input>
                 </label>
-                <a href="#">Forget password?</a>
+                <Link href="#">Forget password?</Link>
               </div>
-              <button style={{background: "#78613C"}}
+              <button
+                style={{ background: "#78613C" }}
                 type="submit"
                 className="btn"
                 onClick={handleRegisterSubmit}
@@ -220,14 +212,14 @@ function Id() {
               >
                 <p>
                   Already have an account?
-                  <a
+                  <Link
                     href="#"
                     style={{ marginLeft: "1.5px" }}
                     className="login-link"
                     onClick={handleClick}
                   >
                     Sign in
-                  </a>
+                  </Link>
                 </p>
               </div>
             </form>

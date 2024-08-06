@@ -1,30 +1,28 @@
-import React from 'react'
-import "./display.css"
-import ReactPlayer from 'react-player'
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import queryString from "query-string"
+import React from "react";
+import "./display.css";
+import ReactPlayer from "react-player";
+import { useLocation } from "react-router-dom";
 const Display = () => {
   const { search } = useLocation();
   const myArray = search.slice(1);
-  // const url=query;
-console.log(myArray)
-  
+  console.log(myArray);
+
   return (
-
     <div className="main">
-      <div className='player-wrapper'>
+      <div className="player-wrapper">
         <ReactPlayer
-          className='react-player'
+          className="react-player"
           url={myArray}
-          width='100vw'
-          height='40%'
-          controls={true} playing={true} mute="muted"
+          width="100vw"
+          height="40%"
+          controls={true}
+          playing={true}
+          mute="muted"
           loop
-
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Display
+export default Display;

@@ -27,7 +27,7 @@ export default function ChatRegister() {
     if (localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
       navigate("/chat");
     }
-  }, []);
+  },[]);
 
   const handleChange = (event) => {
     setValues({ ...values, [event.target.name]: event.target.value });

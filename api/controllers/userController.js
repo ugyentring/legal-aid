@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 
 module.exports.login = async (req, res, next) => {
   try {
-    console.log("hii")
+    console.log("hii");
     const { username, password } = req.body;
     const user = await User.findOne({ username });
     if (!user)
@@ -34,7 +34,7 @@ module.exports.register = async (req, res, next) => {
       password: hashedPassword,
     });
     delete user.password;
-    return res.json({ status: true, user });
+    return res.json({ status: true });
   } catch (ex) {
     next(ex);
   }
@@ -48,7 +48,7 @@ module.exports.getAllUsers = async (req, res, next) => {
       "avatarImage",
       "_id",
     ]);
-    console.log("hii")
+    console.log("hii");
     return res.json(users);
   } catch (ex) {
     next(ex);

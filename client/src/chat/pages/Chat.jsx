@@ -14,17 +14,23 @@ export default function Chat() {
   const [contacts, setContacts] = useState([]);
   const [currentChat, setCurrentChat] = useState(undefined);
   const [currentUser, setCurrentUser] = useState(undefined);
-  useEffect(async () => {
-    if (!localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
-      navigate("/chatlogin");
-    } else {
-      setCurrentUser(
-        await JSON.parse(
-          localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
-        )
+
+  // Fetch current user on component mount
+  useEffect(() => {
+    const fetchUser = async () => {
+      const storedUser = localStorage.getItem(
+        process.env.REACT_APP_LOCALHOST_KEY
       );
-    }
-  }, []);
+      if (!storedUser) {
+        navigate("/chatlogin");
+      } else {
+        setCurrentUser(JSON.parse(storedUser));
+      }
+    };
+    fetchUser();
+  }, [navigate]);
+
+  // Initialize socket connection when currentUser is set
   useEffect(() => {
     if (currentUser) {
       socket.current = io(host);
@@ -32,30 +38,30 @@ export default function Chat() {
     }
   }, [currentUser]);
 
-  useEffect(async () => {
-    if (currentUser) {
-      // if (currentUser.isAvatarImageSet) {
-      const data = await axios.get(`${allUsersRoute}/${currentUser._id}`);
-      console.log("sdvdsv");
-      console.log(data);
-      setContacts(data.data);
-      // } else {
-      //   navigate("/setAvatar");
-      // }
-    }
+  // Fetch contacts when currentUser is set
+  useEffect(() => {
+    const fetchContacts = async () => {
+      if (currentUser) {
+        const { data } = await axios.get(`${allUsersRoute}/${currentUser._id}`);
+        setContacts(data);
+      }
+    };
+    fetchContacts();
   }, [currentUser]);
+
   const handleChatChange = (chat) => {
     setCurrentChat(chat);
   };
+
   return (
     <>
-      <Container style={{ height: "90vh" }}>
-        <div className="container" style={{}}>
+      <Container>
+        <div className="container">
           <Contacts contacts={contacts} changeChat={handleChatChange} />
-          {currentChat === undefined ? (
-            <Welcome />
-          ) : (
+          {currentChat ? (
             <ChatContainer currentChat={currentChat} socket={socket} />
+          ) : (
+            <Welcome />
           )}
         </div>
       </Container>

@@ -2,6 +2,7 @@ import "./ClientId.css";
 import React, { useState, useRef, useContext } from "react";
 import { Context } from "../../context/Context";
 import axios from "axios";
+import { Link } from "react-router-dom"; // Import Link
 
 function Clientid() {
   const [username, setUsername] = useState("");
@@ -13,8 +14,6 @@ function Clientid() {
   const [contact, setContact] = useState("");
   const [gender, setGender] = useState("");
   const [addhar, setAddhar] = useState("");
-  const [categories, setCategories] = useState("");
-  const [payment, setPayment] = useState("");
   const [error, setError] = useState(false);
   const [isActive, setIsActive] = useState(false);
 
@@ -32,13 +31,11 @@ function Clientid() {
 
   const userRef = useRef();
   const passwordRef = useRef();
-  const { user, dispatch, isFetching } = useContext(Context);
+  const { dispatch, isFetching } = useContext(Context);
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
-    console.log(dispatch);
-    console.log(isFetching);
     try {
       const res = await axios.post(
         "http://localhost:5000/api/clientAuth/login",
@@ -48,7 +45,6 @@ function Clientid() {
         }
       );
       res.data && window.location.replace("/lawyerlist");
-
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE" });
@@ -81,27 +77,11 @@ function Clientid() {
   };
 
   const handleClick = (event) => {
-    // 👇️ toggle isActive state on click
     setIsActive((current) => !current);
   };
 
   return (
     <div>
-      {/* <header className="header">
-        <nav className="navbar">
-          <a href="#">Home</a>
-          <a href="#">About</a>
-          <a href="#">Services</a>
-          <a href="#">Contact</a>
-        </nav>
-        <form action="#" className="search-bar">
-          <input type="text" placeholder="Search.." />
-          <button type="submit">
-            <i className="bx bx-search"></i>
-          </button>
-        </form>
-      </header> */}
-
       <div className="background"></div>
       <div className="s-clientid-container">
         <div className="content">
@@ -121,37 +101,31 @@ function Clientid() {
             </p>
 
             <div className="social-icons">
-              <a href="#">
+              <Link href="#">
                 <i className="bx bxl-linkedin"></i>
-              </a>
-              <a href="#">
+              </Link>
+              <Link href="#">
                 <i className="bx bxl-instagram"></i>
-              </a>
-              <a href="#">
+              </Link>
+              <Link href="#">
                 <i className="bx bxl-facebook"></i>
-              </a>
-              <a href="#">
+              </Link>
+              <Link href="#">
                 <i className="bx bxl-twitter"></i>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
         <div className={isActive ? "logreg-box active" : "logreg-box"}>
           <div className="form-box login">
-            <form action="#">
+            <form onSubmit={handleLoginSubmit}>
               <h2>Sign In</h2>
               <div className="input-box">
-                <span className="icon">
-                  {/* <i className="bx bx-envelope"></i> */}
-                </span>
                 <input type="text" required ref={userRef} />
                 <label>UserName</label>
               </div>
 
               <div className="input-box">
-                <span className="icon">
-                  {/* <i className="bx bxs-lock-alt"></i> */}
-                </span>
                 <input type="password" required ref={passwordRef} />
                 <label>Password</label>
               </div>
@@ -159,10 +133,11 @@ function Clientid() {
               <div className="remember-forgot">
                 <label>
                   <input type="checkbox" />
+                  Remember me
                 </label>
-                <a href="#">Forget password?</a>
+                <Link to="#">Forget password?</Link>
               </div>
-              <button type="submit" className="btn" onClick={handleLoginSubmit}>
+              <button type="submit" className="btn">
                 Sign In
               </button>
 
@@ -172,49 +147,43 @@ function Clientid() {
               >
                 <p>
                   Don't have an account?
-                  <a
-                    href="#"
+                  <Link
+                    to="#"
                     style={{ marginLeft: "1.5px" }}
                     className="login-link"
                     onClick={handleClick}
                   >
                     Sign Up
-                  </a>
+                  </Link>
                 </p>
               </div>
             </form>
           </div>
 
           <div className="form-box register">
-            <form action="#">
+            <form onSubmit={handleRegisterSubmit}>
               <h2>Sign Up</h2>
               <div className="fields">
                 {Fields.map((item, index) => (
-                  <div className="input-box">
-                    <span className="icon">
-                      {/* <i className="bx bx-envelope"></i> */}
-                    </span>
+                  <div className="input-box" key={index}>
                     <input
                       type="text"
                       required
                       onChange={(e) => item[1](e.target.value)}
                     />
-                    <label>{item}</label>
+                    <label>{item[0]}</label>
                   </div>
                 ))}
               </div>
 
               <div className="remember-forgot">
                 <label>
-                  <input type="checkbox"></input>
+                  <input type="checkbox" />
+                  Remember me
                 </label>
-                <a href="#">Forget password?</a>
+                <Link to="#">Forget password?</Link>
               </div>
-              <button
-                type="submit"
-                className="btn"
-                onClick={handleRegisterSubmit}
-              >
+              <button type="submit" className="btn">
                 Sign Up
               </button>
 
@@ -224,14 +193,14 @@ function Clientid() {
               >
                 <p>
                   Already have an account?
-                  <a
-                    href="#"
+                  <Link
+                    to="#"
                     style={{ marginLeft: "1.5px" }}
                     className="login-link"
                     onClick={handleClick}
                   >
                     Sign in
-                  </a>
+                  </Link>
                 </p>
               </div>
             </form>

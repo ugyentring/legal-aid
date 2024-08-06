@@ -10,13 +10,10 @@ const authRoute = require("./routes/auth");
 const authRoutes = require("./routes/chatauth");
 const messageRoutes = require("./routes/messages");
 const clientauthRoute = require("./routes/client_auth");
-const categoryRoute = require("./routes/categories");
 const lawyerRoute = require("./routes/lawyer");
 const caseRoute = require("./routes/case");
 const teamRoute = require("./routes/team");
 const clientRoute = require("./routes/client");
-const postRoute = require("./routes/posts");
-const videoRoute = require("./routes/video");
 
 dotenv.config();
 const app = express();
@@ -60,7 +57,7 @@ app.use("/api/team", teamRoute);
 app.use("/api/chatauth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
-const server = app.listen("5000", () => {
+const server = app.listen(process.env.port, () => {
   console.log("Backend is running.");
 });
 
