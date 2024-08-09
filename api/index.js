@@ -24,13 +24,7 @@ app.use("/images", express.static(path.join(__dirname, "/images")));
 
 // Database connection
 mongoose
-  .connect(
-    process.env.MONGO_URL || "mongodb://localhost:27017/charges-by-tenants",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.log(err));
 
